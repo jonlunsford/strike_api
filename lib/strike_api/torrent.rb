@@ -4,7 +4,7 @@ require 'cgi'
 
 API_URL = "https://getstrike.net/api/v2/torrents"
 
-module Strike
+module StrikeApi
 	class Torrent
 		attr_reader :hash, :title, :category, :sub_category, :seeds, :leeches, :file_count, :size, :download_count, :upload_date, :uploader_username, :magnet_uri
 	    def initialize(attributes)

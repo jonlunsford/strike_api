@@ -1,4 +1,4 @@
-require './lib/strike'
+require './lib/strike_api'
 require 'minitest/autorun'
 require 'webmock/minitest'
 require 'vcr'
