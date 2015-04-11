@@ -1,5 +1,6 @@
 require 'httparty'
 require 'json'
+require 'cgi'
 
 API_URL = "https://getstrike.net/api/v2/torrents"
 
