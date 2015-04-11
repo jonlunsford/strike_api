@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://getstrike.net/api/v2/torrents/info/?hashes=156B69B8643BD11849A5D8F2122E13FBB61BD041,
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sat, 11 Apr 2015 16:21:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dd403a5537bf7e5daa7170d1281c20c281428769264; expires=Sun, 10-Apr-16
+        16:21:04 GMT; path=/; domain=.getstrike.net; HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      Cf-Ray:
+      - 1d5805be50450afc-WAW
+    body:
+      encoding: UTF-8
+      string: '{"results":1,"statuscode":200,"responsetime":0.0017,"torrents":[{"torrent_hash":"156B69B8643BD11849A5D8F2122E13FBB61BD041","torrent_title":"Slackware
+        14.1 x86_64 DVD ISO","torrent_category":"Applications","sub_category":"","seeds":192,"leeches":9,"file_count":4,"size":2437393940,"upload_date":"Feb
+        24, 2014","uploader_username":"Nusantara","file_info":{"file_names":["slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso","
+        slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.asc"," slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.md5","
+        slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.txt"],"file_lengths":[2438987776,198,67,231925]},"magnet_uri":"magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969"}]}'
+    http_version: 
+  recorded_at: Sat, 11 Apr 2015 16:21:04 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://getstrike.net/api/v2/torrents/search/?phrase=Slackware%2014.1%20x86_64%20DVD%20ISO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sat, 11 Apr 2015 16:21:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d5faff69c5438e616b6e7beb45d8701dd1428769260; expires=Sun, 10-Apr-16
+        16:21:00 GMT; path=/; domain=.getstrike.net; HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      Cf-Ray:
+      - 1d5805a899b405db-WAW
+    body:
+      encoding: UTF-8
+      string: '{"results":1,"statuscode":200,"responsetime":0.0969,"torrents":[{"torrent_hash":"156B69B8643BD11849A5D8F2122E13FBB61BD041","torrent_title":"Slackware
+        14.1 x86_64 DVD ISO","torrent_category":"Applications","sub_category":"","seeds":192,"leeches":9,"file_count":4,"size":2437393940,"download_count":40,"upload_date":"Feb
+        24, 2014","uploader_username":"Nusantara","page":"https:\/\/getstrike.net\/torrents\/156B69B8643BD11849A5D8F2122E13FBB61BD041","rss_feed":"https:\/\/getstrike.net\/torrents\/156B69B8643BD11849A5D8F2122E13FBB61BD041?rss=1","magnet_uri":"magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969"}]}'
+    http_version: 
+  recorded_at: Sat, 11 Apr 2015 16:21:01 GMT
+recorded_with: VCR 2.9.3

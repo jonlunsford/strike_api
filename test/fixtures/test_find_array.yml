@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://getstrike.net/api/v2/torrents/info/?hashes=156B69B8643BD11849A5D8F2122E13FBB61BD041,B425907E5755031BDA4A8D1B6DCCACA97DA14C04,
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sat, 11 Apr 2015 16:21:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d4c67e9acea6bc97066b0c9a02ef2f04f1428769263; expires=Sun, 10-Apr-16
+        16:21:03 GMT; path=/; domain=.getstrike.net; HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      Cf-Ray:
+      - 1d5805b9947005d5-WAW
+    body:
+      encoding: UTF-8
+      string: '{"results":2,"statuscode":200,"responsetime":0.002,"torrents":[{"torrent_hash":"156B69B8643BD11849A5D8F2122E13FBB61BD041","torrent_title":"Slackware
+        14.1 x86_64 DVD ISO","torrent_category":"Applications","sub_category":"","seeds":192,"leeches":9,"file_count":4,"size":2437393940,"upload_date":"Feb
+        24, 2014","uploader_username":"Nusantara","file_info":{"file_names":["slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso","
+        slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.asc"," slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.md5","
+        slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso.txt"],"file_lengths":[2438987776,198,67,231925]},"magnet_uri":"magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969"},{"torrent_hash":"B425907E5755031BDA4A8D1B6DCCACA97DA14C04","torrent_title":"Arch
+        Linux 2015.01.01 (x86\/x64)","torrent_category":"Applications","sub_category":"","seeds":645,"leeches":13,"file_count":1,"size":615514112,"upload_date":"Jan  6,
+        2015","uploader_username":"The_Doctor-","file_info":{"file_names":["archlinux-2015.01.01-dual.iso"],"file_lengths":[615514112]},"magnet_uri":"magnet:?xt=urn:btih:B425907E5755031BDA4A8D1B6DCCACA97DA14C04&dn=Arch+Linux+2015.01.01+%28x86%2Fx64%29&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969"}]}'
+    http_version: 
+  recorded_at: Sat, 11 Apr 2015 16:21:03 GMT
+recorded_with: VCR 2.9.3

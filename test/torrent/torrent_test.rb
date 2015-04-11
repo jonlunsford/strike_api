@@ -1,0 +1,127 @@
+require './test/test_helper'
+
+class StrikeTorrentTest < Minitest::Test
+	def test_exists
+   		assert Strike::Torrent
+  	end
+
+  	def test_find_single_torrent
+	   	VCR.use_cassette('test_find_single_torrent') do
+	    	result = Strike::Torrent.find("156B69B8643BD11849A5D8F2122E13FBB61BD041")[0]
+			assert_equal Strike::Torrent, result.class
+			assert_equal "156B69B8643BD11849A5D8F2122E13FBB61BD041", result.hash
+			assert_equal "Slackware 14.1 x86_64 DVD ISO", result.title
+			assert_equal "Applications", result.category
+			assert_equal "", result.sub_category
+			assert_equal 192, result.seeds
+			assert_equal 9, result.leeches
+			assert_equal 4, result.file_count
+			assert_equal 2437393940, result.size
+			# assert_equal 40, result.download_count
+			assert_equal "Feb 24, 2014", result.upload_date
+			assert_equal "Nusantara", result.uploader_username
+			assert_equal "magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result.magnet_uri
+	    end
+	end
+  	def test_find_no_torrents
+   		VCR.use_cassette('test_find_no_torrents') do
+   			begin
+   				result = Strike::Torrent.find("156B69B8643BD1184D041")[0]
+   			rescue => e
+   				assert_equal "Strike API error: 404 - No torrents found with provided hashes", e.message
+   			end
+    	end
+	end
+	def test_search_no_torrents
+   		VCR.use_cassette('test_search_no_torrents') do
+   			begin
+   				result = Strike::Torrent.search("123456789abcdefg")[0]
+   			rescue => e
+   				assert_equal "Strike API error: 404 - No torrents found.", e.message
+   			end
+    	end
+	end
+    def test_search
+	    VCR.use_cassette('test_search') do
+	    	result = Strike::Torrent.search("Slackware 14.1 x86_64 DVD ISO")
+	      	assert_equal 1, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(Strike::Torrent)
+	    end
+  	end
+
+	def test_searchCat
+	    VCR.use_cassette('test_searchCat') do
+	    	result = Strike::Torrent.searchCat("windows", "Applications")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(Strike::Torrent)
+	    end
+  	end
+
+  	def test_searchSubCat
+	    VCR.use_cassette('test_searchSubCat') do
+	    	result = Strike::Torrent.searchSubCat("windows", "Windows")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(Strike::Torrent)
+	    end
+  	end
+
+  	def test_searchCatSubCat
+	    VCR.use_cassette('test_searchCatSubCat') do
+	    	result = Strike::Torrent.searchCatSubCat("windows", "Applications", "Windows")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(Strike::Torrent)
+	    end
+  	end
+
+  	def test_find_array
+	   	VCR.use_cassette('test_find_array') do
+	    	result = Strike::Torrent.find(["156B69B8643BD11849A5D8F2122E13FBB61BD041","B425907E5755031BDA4A8D1B6DCCACA97DA14C04"])
+	    	result1 = result[0]
+	    	result2 = result[1]
+	    	# Torrent 1: Slackware ISO
+			assert_equal Strike::Torrent, result1.class
+			assert_equal "156B69B8643BD11849A5D8F2122E13FBB61BD041", result1.hash
+			assert_equal "Slackware 14.1 x86_64 DVD ISO", result1.title
+			assert_equal "Applications", result1.category
+			assert_equal "", result1.sub_category
+			assert_equal 192, result1.seeds
+			assert_equal 9, result1.leeches
+			assert_equal 4, result1.file_count
+			assert_equal 2437393940, result1.size
+			# assert_equal 40, result1.download_count
+			assert_equal "Feb 24, 2014", result1.upload_date
+			assert_equal "Nusantara", result1.uploader_username
+			assert_equal "magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result1.magnet_uri
+			# Torrent 2: Arch ISO
+			assert_equal Strike::Torrent, result2.class
+			assert_equal "B425907E5755031BDA4A8D1B6DCCACA97DA14C04", result2.hash
+			assert_equal "Arch Linux 2015.01.01 (x86\/x64)", result2.title
+			assert_equal "Applications", result2.category
+			assert_equal "", result2.sub_category
+			assert_equal 645, result2.seeds
+			assert_equal 13, result2.leeches
+			assert_equal 1, result2.file_count
+			assert_equal 615514112, result2.size
+			# assert_equal 40, result2.download_count
+			assert_equal "Jan  6, 2015", result2.upload_date
+			assert_equal "The_Doctor-", result2.uploader_username
+			assert_equal "magnet:?xt=urn:btih:B425907E5755031BDA4A8D1B6DCCACA97DA14C04&dn=Arch+Linux+2015.01.01+%28x86%2Fx64%29&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result2.magnet_uri
+	    end
+	end
+
+	def test_catagoriesAvailable
+		result = Strike::Torrent.catagoriesAvailable
+	    assert result.kind_of?(Array)
+	    assert result.first.kind_of?(String)
+	end
+
+	def test_subCatagoriesAvailable
+		result = Strike::Torrent.subCatagoriesAvailable
+	    assert result.kind_of?(Array)
+	    assert result.first.kind_of?(String)
+	end
+end
