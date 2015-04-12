@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://getstrike.net/api/v2/torrents/search/?phrase=123456789abcdefg
+    uri: https://getstrike.net/api/v2/torrents/search/?phrase=
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Sun, 12 Apr 2015 21:17:14 GMT
+      - Sun, 12 Apr 2015 21:17:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -29,8 +29,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dff12aea349b8eab4dc265735db730a721428873433; expires=Mon, 11-Apr-16
-        21:17:13 GMT; path=/; domain=.getstrike.net; HttpOnly
+      - __cfduid=d63c641edea7234a32a2e512af950f17f1428873436; expires=Mon, 11-Apr-16
+        21:17:16 GMT; path=/; domain=.getstrike.net; HttpOnly
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -38,10 +38,10 @@ http_interactions:
       X-Clacks-Overhead:
       - GNU Terry Pratchett
       Cf-Ray:
-      - 1d61f4f1b2cf0b02-WAW
+      - 1d61f500092205e1-WAW
     body:
       encoding: UTF-8
-      string: '{"statuscode":404,"message":"No torrents found."}'
+      string: '{"statuscode":404,"message":"Please enter a phrease."}'
     http_version: 
-  recorded_at: Sun, 12 Apr 2015 21:17:13 GMT
+  recorded_at: Sun, 12 Apr 2015 21:17:16 GMT
 recorded_with: VCR 2.9.3

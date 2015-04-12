@@ -20,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See tests for usage examples.
+
+## TODO
+
+1. Better commenting
+2. Provide usage examples in readme
 
 ## Contributing
 
