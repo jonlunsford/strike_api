@@ -19,13 +19,37 @@ Or install it yourself as:
     $ gem install strike_api
 
 ## Usage
+Use the find method to find information on a specific torrent hash. The find method accepts both a single string and an array of strings.
 
-See tests for usage examples.
+```
+result = StrikeApi::Torrent.find(yourTorrentHash)
+```
+
+Use the search method with one parameter to search for a torrent by title. 
+
+```
+result = StrikeApi::Torrent.search(yourSearchPhrase)
+```
+
+Use the search method with two parameters, the first being your search phrase and the second being either a category or a sub category.
+
+```
+result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory) 
+```
+
+Use the search method with three parameters, the first being your search phrase, second being a category, and third being a sub category.
+
+```
+result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSubCategory)
+```
+
+ 
+See tests for more usage examples.
 
 ## TODO
 
 1. Better commenting
-2. Provide usage examples in readme
+2. ~~Provide usage examples in readme~~
 
 ## Contributing
 
