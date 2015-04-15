@@ -1,6 +1,8 @@
 # Strike API
 
-API wrapper for the Strike Search website (http://getstrike.net)
+[![Gem Version](https://img.shields.io/gem/v/strike_api.svg)](https://rubygems.org/gems/strike_api)
+
+API wrapper for the Strike Search website (https://getstrike.net/torrents/)
 
 ## Installation
 
@@ -25,7 +27,7 @@ Use the find method to find information on a specific torrent hash. The find met
 result = StrikeApi::Torrent.find(yourTorrentHash)
 ```
 
-Use the search method with one parameter to search for a torrent by title. 
+Use the search method with one parameter to search for a torrent by title.
 
 ```
 result = StrikeApi::Torrent.search(yourSearchPhrase)
@@ -34,7 +36,7 @@ result = StrikeApi::Torrent.search(yourSearchPhrase)
 Use the search method with two parameters, the first being your search phrase and the second being either a category or a sub category.
 
 ```
-result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory) 
+result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory)
 ```
 
 Use the search method with three parameters, the first being your search phrase, second being a category, and third being a sub category.
@@ -43,7 +45,7 @@ Use the search method with three parameters, the first being your search phrase,
 result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSubCategory)
 ```
 
- 
+
 See tests for more usage examples.
 
 ## TODO

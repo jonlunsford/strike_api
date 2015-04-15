@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 	spec.authors       = ["Marshall Ford","Brett Chastain"]
 	spec.email         = ["inbox@marshallford.me"]
 	spec.summary       = %q{Wrapper for the Strike API.}
-	spec.description   = %q{API wrapper for the Strike Search website (http://getstrike.net)}
+	spec.description   = %q{API wrapper for the Strike Search website (https://getstrike.net/torrents/)}
 	spec.homepage      = "https://github.com/marshallford/strike_api"
 	spec.license       = "MIT"
 
