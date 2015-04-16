@@ -22,6 +22,8 @@ class StrikeTorrentTest < Minitest::Test
 			assert_equal "Feb 24, 2014", result.upload_date
 			assert_equal "Nusantara", result.uploader_username
 			assert_equal "magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result.magnet_uri
+			assert_equal "slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso", result.file_info[0][0] # first file, filename
+			assert_equal 2438987776, result.file_info[0][1] # first file, file length
 	    end
 	end
 
@@ -44,6 +46,8 @@ class StrikeTorrentTest < Minitest::Test
 			assert_equal "Feb 24, 2014", result1.upload_date
 			assert_equal "Nusantara", result1.uploader_username
 			assert_equal "magnet:?xt=urn:btih:156B69B8643BD11849A5D8F2122E13FBB61BD041&dn=Slackware+14.1+x86_64+DVD+ISO&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result1.magnet_uri
+			assert_equal "slackware64-14.1-iso\\slackware64-14.1-install-dvd.iso", result1.file_info[0][0] # first file, filename
+			assert_equal 2438987776, result1.file_info[0][1] # first file, file length
 			# Torrent 2: Arch ISO
 			assert_equal StrikeApi::Torrent, result2.class
 			assert_equal "B425907E5755031BDA4A8D1B6DCCACA97DA14C04", result2.hash
@@ -58,6 +62,8 @@ class StrikeTorrentTest < Minitest::Test
 			assert_equal "Jan  6, 2015", result2.upload_date
 			assert_equal "The_Doctor-", result2.uploader_username
 			assert_equal "magnet:?xt=urn:btih:B425907E5755031BDA4A8D1B6DCCACA97DA14C04&dn=Arch+Linux+2015.01.01+%28x86%2Fx64%29&tr=udp:\/\/open.demonii.com:1337&tr=udp:\/\/tracker.coppersurfer.tk:6969&tr=udp:\/\/tracker.leechers-paradise.org:6969&tr=udp:\/\/exodus.desync.com:6969", result2.magnet_uri
+	    	assert_equal "archlinux-2015.01.01-dual.iso", result2.file_info[0][0] # first file, filename
+			assert_equal 615514112, result2.file_info[0][1] # first file, file length
 	    end
 	end
 
@@ -107,6 +113,7 @@ class StrikeTorrentTest < Minitest::Test
 	      	assert_equal 1, result.length
 	      	assert result.kind_of?(Array)
 	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info # file_info information is not given in search results
 	    end
   	end
 
@@ -116,6 +123,7 @@ class StrikeTorrentTest < Minitest::Test
 	      	assert_equal 100, result.length
 	      	assert result.kind_of?(Array)
 	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info # file_info information is not given in search results
 	    end
   	end
 
@@ -125,6 +133,7 @@ class StrikeTorrentTest < Minitest::Test
 	      	assert_equal 100, result.length
 	      	assert result.kind_of?(Array)
 	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info # file_info information is not given in search results
 	    end
   	end
 
@@ -134,6 +143,7 @@ class StrikeTorrentTest < Minitest::Test
 	      	assert_equal 100, result.length
 	      	assert result.kind_of?(Array)
 	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info # file_info information is not given in search results
 	    end
   	end
 

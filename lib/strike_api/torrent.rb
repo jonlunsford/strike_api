@@ -6,7 +6,7 @@ API_URL = "https://getstrike.net/api/v2/torrents"
 
 module StrikeApi
 	class Torrent
-		attr_reader :hash, :title, :category, :sub_category, :seeds, :leeches, :file_count, :size, :download_count, :upload_date, :uploader_username, :magnet_uri
+		attr_reader :hash, :title, :category, :sub_category, :seeds, :leeches, :file_count, :size, :download_count, :upload_date, :uploader_username, :magnet_uri, :file_info
 
 		# Constructor for torrent objects
 	    def initialize(attributes)
@@ -22,6 +22,14 @@ module StrikeApi
 		    @upload_date = attributes["upload_date"]
 		    @uploader_username = attributes["uploader_username"]
 		    @magnet_uri = attributes["magnet_uri"]
+		    if(attributes.has_key?("file_info")) # file info is only included in hash searches (the find method)
+		    	file_names = attributes["file_info"]["file_names"].to_a
+		    	file_lengths = attributes["file_info"]["file_lengths"].to_a
+		    	@file_info = Array.new
+		    	file_names.each_with_index do |item, i|
+		    		@file_info[i] = [file_names[i],file_lengths[i]]
+		    	end
+		    end
 		end
 
 		# Allows for both a single torrentHash via a string and multiple via an array of torrentHash strings.
@@ -29,8 +37,11 @@ module StrikeApi
 	  	def self.find(torrentHash)
   			hashListStr = ""
   			torrentHash = Array(torrentHash)
+  			if(torrentHash.length > 50)
+  				raise "Strike API accepts a maximum of 50 hashes per query"
+  			end
   			torrentHash.length.times do |i|
-  				hashListStr = hashListStr + torrentHash[i] + ","
+  				hashListStr += torrentHash[i] + ","
   			end
 			response =  HTTParty.get("#{API_URL}/info/?hashes=#{hashListStr}")
 			errorChecker(response)
