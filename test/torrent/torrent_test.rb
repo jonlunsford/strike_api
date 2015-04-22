@@ -147,42 +147,6 @@ class StrikeTorrentTest < Minitest::Test
 	    end
   	end
 
-  	def test_filter_string
-	    VCR.use_cassette('test_filter_string') do
-  			flag = true
-	    	result = StrikeApi::Torrent.search("windows -windows8", "Applications", "Windows")
-	      	assert_equal 100, result.length
-	      	assert result.kind_of?(Array)
-	      	assert result.first.kind_of?(StrikeApi::Torrent)
-	      	testStr = "windows 8"
-	      	result.each{|torrent|
-			if(torrent.title.strip.downcase.include? testStr.strip)
-				flag = false
-			end
-	      	}
-	       	assert_equal true,flag
-	      	assert !result[0].file_info # file_info information is not given in search results
-	    end
-  	end
-
-  	def test_filter_string_no_filter
-		VCR.use_cassette('test_filter_string_no_filter') do
-  			flag = true
-	    	result = StrikeApi::Torrent.search("windows", "Applications", "Windows")
-	      	assert_equal 100, result.length
-	      	assert result.kind_of?(Array)
-	      	assert result.first.kind_of?(StrikeApi::Torrent)
-	      	testStr = "windows 8"
-	      	result.each{|torrent|
-			if(torrent.title.strip.downcase.include? testStr.strip)
-				flag = false
-			end
-	      	}
-	       	assert_equal false,flag
-	      	assert !result[0].file_info # file_info information is not given in search results
-	    end
-  	end
-
   	def test_search_more_than_three_params
 	    VCR.use_cassette('test_search_more_than_three_params') do
 	      	begin
@@ -220,6 +184,40 @@ class StrikeTorrentTest < Minitest::Test
    			rescue => e
    				assert_equal "The sub category is not valid", e.message
    			end
+	    end
+  	end
+
+  	def test_filter_string
+	    VCR.use_cassette('test_filter_string') do
+  			flag = true
+	    	result = StrikeApi::Torrent.search("windows -windows8", "Applications", "Windows")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	filteredStr = "windows 8"
+	      	result.each do |torrent|
+				if(torrent.title.strip.downcase.include? filteredStr.strip.downcase)
+					flag = false
+				end
+			end
+	       	assert_equal true, flag
+	    end
+  	end
+
+  	def test_filter_string_no_filter
+		VCR.use_cassette('test_filter_string_no_filter') do
+  			flag = true
+	    	result = StrikeApi::Torrent.search("windows", "Applications", "Windows")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	filteredStr = "windows 8"
+	      	result.each do |torrent|
+				if(torrent.title.strip.downcase.include? filteredStr.strip.downcase)
+					flag = false
+				end
+			end
+	       	assert_equal false, flag
 	    end
   	end
 
