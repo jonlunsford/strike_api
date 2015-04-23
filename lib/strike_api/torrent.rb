@@ -77,6 +77,17 @@ module StrikeApi
 	      	torrentsJSON["torrents"].map { |attributes| new(attributes) }
 	    end
 
+	    def self.top(input)
+	    	searchPhrase = CGI::escape(input.strip)
+			if(categoryChecker(input) != "category")
+	   			raise "The category is not valid"
+	   		end
+			response = HTTParty.get("#{API_URL}/top/?category=#{input}")
+			errorChecker(response)
+	      	torrentsJSON = JSON.parse(response.body)
+	      	torrentsJSON["torrents"].map { |attributes| new(attributes) }
+	    end
+
 	    # Returns list of categories available
 	    def self.catagoriesAvailable
 	    	return ["Anime","Applications","Books","Games","Movies","Music","Other","TV","XXX"]

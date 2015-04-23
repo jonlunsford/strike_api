@@ -221,6 +221,26 @@ class StrikeTorrentTest < Minitest::Test
 	    end
   	end
 
+  	def test_top
+		VCR.use_cassette('test_top') do
+			result = StrikeApi::Torrent.top("Books")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info
+		end
+  	end
+
+  	def test_top_invalid_category
+		VCR.use_cassette('test_top_invalid_category') do
+			begin
+				result = StrikeApi::Torrent.top("abc123")
+   			rescue => e
+   				assert_equal "The category is not valid", e.message
+   			end
+		end
+  	end
+
 	def test_catagoriesAvailable
 		result = StrikeApi::Torrent.catagoriesAvailable
 	    assert result.kind_of?(Array)
