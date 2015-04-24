@@ -79,7 +79,7 @@ module StrikeApi
 
 	    def self.top(input)
 	    	searchPhrase = CGI::escape(input.strip)
-			if(categoryChecker(input) != "category")
+			if((categoryChecker(input) != "category") && input.strip.downcase != "all") # all is also a valid top category
 	   			raise "The category is not valid"
 	   		end
 			response = HTTParty.get("#{API_URL}/top/?category=#{input}")
