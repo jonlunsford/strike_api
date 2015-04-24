@@ -24,51 +24,47 @@ Or install it yourself as:
 
 ### Find
 
-* Param 1: torrent hash string, array of torrent hash strings
-* Returns: array of torrent objects (objects include file_info data)
-
-```
-result = StrikeApi::Torrent.find(yourTorrentHash)
+```ruby
+# Param 1: torrent hash string or array of torrent hash strings
+# Returns: array of torrent objects (objects include file_info data)
+torrentInfoArray = StrikeApi::Torrent.find(yourTorrentHash)
 ```
 
 ### Search
 
-* Param 1: search phrase, example: "ubuntu iso"
-* Returns: array of torrent objects
+```ruby
+# Param 1: search phrase, example: "ubuntu iso"
+# Returns: array of torrent objects
+searchResults = StrikeApi::Torrent.search(yourSearchPhrase)
 
-```
-result = StrikeApi::Torrent.search(yourSearchPhrase)
+# Param 1: search phrase, example: "ubuntu iso"
+# Param 2: category or sub category, examples: "Music", "Documentary"
+# Returns: array of torrent objects
+searchResults = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory)
+
+# Param 1: search phrase, example: "ubuntu iso"
+# Param 2: category, example: "Applications"
+# Param 3: sub category, example: "Windows"
+# Returns: array of torrent objects
+searchResults = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSubCategory)
 ```
 
-* Param 1: search phrase, example: "ubuntu iso"
-* Param 2: Category or sub category, examples: "Music", "Documentary"
-* Returns: array of torrent objects
+### Top Torrents
 
-```
-result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory)
-```
-
-* Param 1: search phrase, example: "ubuntu iso"
-* Param 2: Category, example: "Applications"
-* Param 3: Sub category, example: "Windows"
-* Returns: array of torrent objects
-
-```
-result = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSubCategory)
+```ruby
+# Param 1: category, examples: "Books", "all"
+# Returns: top 100 torrents
+topResults = StrikeApi::Torrent.top(yourCatagory)
 ```
 
 ### Categories and sub categories
 
-* Returns: array of valid categories
+```ruby
+# Returns: array of valid categories
+categoryArray = StrikeApi::Torrent.catagoriesAvailable()
 
-```
-result = StrikeApi::Torrent.catagoriesAvailable()
-```
-
-* Returns: array of valid sub categories
-
-```
-result = StrikeApi::Torrent.subCatagoriesAvailable()
+# Returns: array of valid sub categories
+subCategoryArray = StrikeApi::Torrent.subCatagoriesAvailable()
 ```
 
 See tests for more usage examples.

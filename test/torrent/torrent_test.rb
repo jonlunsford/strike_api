@@ -241,6 +241,16 @@ class StrikeTorrentTest < Minitest::Test
 		end
   	end
 
+  	def test_top_all_category
+		VCR.use_cassette('test_top_all_category') do
+			result = StrikeApi::Torrent.top("all")
+	      	assert_equal 100, result.length
+	      	assert result.kind_of?(Array)
+	      	assert result.first.kind_of?(StrikeApi::Torrent)
+	      	assert !result[0].file_info
+		end
+  	end
+
 	def test_catagoriesAvailable
 		result = StrikeApi::Torrent.catagoriesAvailable
 	    assert result.kind_of?(Array)
