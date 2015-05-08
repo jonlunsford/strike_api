@@ -109,14 +109,26 @@ module StrikeApi
 	    		return -1
 	    	end
 	    end
-	    # Checks for 4XX errors and onward. Examples: 404, 502
+	    # Checks for 4XX errors and onward. Examples: 404, 502, 522
 	    def self.errorChecker(response)
 	    	code = response.code
-	    	message = JSON.parse(response.body)["message"]
+	    	message = response.message
+	    	if (valid_json?(response.body) && JSON.parse(response.body)["message"])
+	    		message = JSON.parse(response.body)["message"]
+	    	end
 	    	if(code >= 400)
 	    		raise "Strike API error: #{code} - #{message}"
 	    	end
 	    end
-	   	private_class_method :errorChecker, :categoryChecker
+	    # Checks for valid json
+	    def self.valid_json?(json)
+  			begin
+    			JSON.parse(json)
+    			return true
+  			rescue Exception => e
+    			return false
+  			end
+		end
+	   	private_class_method :errorChecker, :categoryChecker, :valid_json?
 	end
 end

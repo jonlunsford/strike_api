@@ -187,6 +187,16 @@ class StrikeTorrentTest < Minitest::Test
 	    end
   	end
 
+  	def test_site_down_cloudflare
+	    VCR.use_cassette('test_site_down_cloudflare') do
+	      	begin
+   				result = StrikeApi::Torrent.search("Slackware 14.1 x86_64 DVD ISO")
+   			rescue => e
+   				assert_equal "Strike API error: 522 - Origin Connection Time-out", e.message
+   			end
+	    end
+  	end
+
   	def test_filter_string
 	    VCR.use_cassette('test_filter_string') do
   			flag = true

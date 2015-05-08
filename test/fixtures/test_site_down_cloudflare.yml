@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://getstrike.net/api/v2/torrents/search/?phrase=Slackware%2014.1%20x86_64%20DVD%20ISO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 522
+      message: Origin Connection Time-out
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Fri, 08 May 2015 00:30:00 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d288974c8a2d9b40f8201e7cc050bd2741431044985; expires=Sat, 07-May-16
+        00:29:45 GMT; path=/; domain=.getstrike.net; HttpOnly
+      Expires:
+      - Thu, 01 Jan 1970 00:00:01 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 1e310d5860cc10c3-ORD
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\"
+        lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\"
+        lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\"
+        lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!--> <html class=\"no-js\"
+        lang=\"en-US\"> <!--<![endif]-->\n<head>\n<meta http-equiv=\"refresh\" content=\"0\">\n<meta
+        http-equiv=\"set-cookie\" content=\"cf_use_ob=443; expires=Fri, 08-May-15
+        00:30:30 GMT; path=/\">\n<meta http-equiv=\"set-cookie\" content=\"cf_ob_info=522:1e310d5860cc10c3:ORD;
+        expires=Fri, 08-May-15 00:30:30 GMT; path=/\">\n<title>getstrike.net | 522:
+        Connection timed out</title>\n<meta charset=\"UTF-8\"/>\n<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=UTF-8\"/>\n<meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=Edge,chrome=1\"/>\n<meta name=\"robots\" content=\"noindex, nofollow\"/>\n<meta
+        name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1\"/>\n<script
+        type=\"text/javascript\">\n//<![CDATA[\ntry{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:\"cf\",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:\"/cdn-cgi/nexp/dok3v=1613a3a185/\"},atok:\"1125e9e1122745bfae623320017b7145\",petok:\"6d14af5b2acb6b513c57cb1b7e3678dfda2f5af2-1431045000-1800\",zone:\"getstrike.net\",rocket:\"0\",apps:{\"ga_key\":{\"ua\":\"UA-59872713-1\",\"ga_bs\":\"2\"}}}];!function(a,b){a=document.createElement(\"script\"),b=document.getElementsByTagName(\"script\")[0],a.async=!0,a.src=\"//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=7e13c32551/cloudflare.min.js\",b.parentNode.insertBefore(a,b)}()}}catch(e){};\n//]]>\n</script>\n<link
+        rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/cf.errors.css\"
+        type=\"text/css\" media=\"screen,projection\"/>\n<!--[if lt IE 9]><link rel=\"stylesheet\"
+        id='cf_styles-ie-css' href=\"/cdn-cgi/styles/cf.errors.ie.css\" type=\"text/css\"
+        media=\"screen,projection\" /><![endif]-->\n<style type=\"text/css\">body{margin:0;padding:0}</style>\n<!--[if
+        lte IE 9]><script type=\"text/javascript\" src=\"/cdn-cgi/scripts/jquery.min.js\"></script><![endif]-->\n<!--[if
+        gte IE 10]><!--><script type=\"text/javascript\" src=\"/cdn-cgi/scripts/zepto.min.js\"></script><!--<![endif]-->\n<script
+        type=\"text/javascript\" src=\"/cdn-cgi/scripts/cf.common.js\"></script>\n<script
+        type=\"text/javascript\">\n/* <![CDATA[ */\nvar _gaq = _gaq || [];\n_gaq.push(['_setAccount',
+        'UA-59872713-1']);\n_gaq.push(['_trackPageview']);\n\n(function() {\nvar ga
+        = document.createElement('script'); ga.type = 'text/javascript'; ga.async
+        = true;\nga.src = ('https:' == document.location.protocol ? 'https://ssl'
+        : 'http://www') + '.google-analytics.com/ga.js';\nvar s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);\n})();\n\n(function(b){(function(a){\"__CF\"in
+        b&&\"DJS\"in b.__CF?b.__CF.DJS.push(a):\"addEventListener\"in b?b.addEventListener(\"load\",a,!1):b.attachEvent(\"onload\",a)})(function(){\"FB\"in
+        b&&\"Event\"in FB&&\"subscribe\"in FB.Event&&(FB.Event.subscribe(\"edge.create\",function(a){_gaq.push([\"_trackSocial\",\"facebook\",\"like\",a])}),FB.Event.subscribe(\"edge.remove\",function(a){_gaq.push([\"_trackSocial\",\"facebook\",\"unlike\",a])}),FB.Event.subscribe(\"message.send\",function(a){_gaq.push([\"_trackSocial\",\"facebook\",\"send\",a])}));\"twttr\"in
+        b&&\"events\"in twttr&&\"bind\"in twttr.events&&twttr.events.bind(\"tweet\",function(a){if(a){var
+        b;if(a.target&&a.target.nodeName==\"IFRAME\")a:{if(a=a.target.src){a=a.split(\"#\")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var
+        c;c=a[b];++b)if(c.indexOf(\"url\")===0){b=unescape(c.split(\"=\")[1]);break
+        a}}b=void 0}_gaq.push([\"_trackSocial\",\"twitter\",\"tweet\",b])}})})})(window);\n/*
+        ]]> */\n</script>\n</head>\n<body>\n<div id=\"cf-wrapper\">\n<div id=\"cf-error-details\"
+        class=\"cf-error-details-wrapper\">\n<div class=\"cf-wrapper cf-error-overview\">\n<h1>\n<span
+        class=\"cf-error-type\" data-translate=\"error\">Error</span>\n<span class=\"cf-error-code\">522</span>\n<small
+        class=\"heading-ray-id\">Ray ID: 1e310d5860cc10c3 &bull; 2015-05-08 00:30:00
+        UTC</small>\n</h1>\n<h2 class=\"cf-subheadline\" data-translate=\"error_desc\">Connection
+        timed out</h2>\n</div> \n<div class=\"cf-section cf-highlight cf-status-display\">\n<div
+        class=\"cf-wrapper\">\n<div class=\"cf-columns cols-3\">\n<div id=\"cf-browser-status\"
+        class=\"cf-column cf-status-item cf-browser-status \">\n<div class=\"cf-icon-error-container\">\n<i
+        class=\"cf-icon cf-icon-browser\"></i>\n<i class=\"cf-icon-status cf-icon-ok\"></i>\n</div>\n<span
+        class=\"cf-status-desc\" data-translate=\"browser_desc\">You</span>\n<h3 class=\"cf-status-name\"
+        data-translate=\"browser_label\">Browser</h3>\n<span class=\"cf-status-label\"
+        data-translate=\"browser_status_label\">Working</span>\n</div>\n<div id=\"cf-cloudflare-status\"
+        class=\"cf-column cf-status-item cf-cloudflare-status \">\n<div class=\"cf-icon-error-container\">\n<i
+        class=\"cf-icon cf-icon-cloud\"></i>\n<i class=\"cf-icon-status cf-icon-ok\"></i>\n</div>\n<span
+        class=\"cf-status-desc\" data-translate=\"cloud_desc\">Chicago</span>\n<h3
+        class=\"cf-status-name\" data-translate=\"cloud_label\">CloudFlare</h3>\n<span
+        class=\"cf-status-label\" data-translate=\"cloud_status_label\">Working</span>\n</div>\n<div
+        id=\"cf-host-status\" class=\"cf-column cf-status-item cf-host-status cf-error-source\">\n<div
+        class=\"cf-icon-error-container\">\n<i class=\"cf-icon cf-icon-server\"></i>\n<i
+        class=\"cf-icon-status cf-icon-error\"></i>\n</div>\n<span class=\"cf-status-desc\"
+        data-translate=\"server_desc\">getstrike.net</span>\n<h3 class=\"cf-status-name\"
+        data-translate=\"server_label\">Host</h3>\n<span class=\"cf-status-label\"
+        data-translate=\"server_status_label\">Error</span>\n</div>\n</div>\n</div>\n</div>
+        \n<div class=\"cf-section cf-wrapper\">\n<div class=\"cf-columns two\">\n<div
+        class=\"cf-column\">\n<h2 data-translate=\"what_happened\">What happened?</h2>\n<p
+        data-translate=\"connection_timed_out\">The initial connection between CloudFlare's
+        network and the origin web server timed out. As a result, the web page can
+        not be displayed.</p>\n</div>\n<div class=\"cf-column\">\n<h2 data-translate=\"what_can_i_do\">What
+        can I do?</h2>\n<h5 data-translate=\"if_website_visitor\">If you're a visitor
+        of this website:</h5>\n<p data-translate=\"try_again_in_a_few\">Please try
+        again in a few minutes.</p>\n<h5 data-translate=\"if_website_owner\">If you're
+        the owner of this website:</h5>\n<p><span data-translate=\"522_owner_desc\">Contact
+        your hosting provider letting them know your web server is not completing
+        requests. An Error 522 means that the request was able to connect to your
+        web server, but that the request didn't finish. The most likely cause is that
+        something on your server is hogging resources.</span> <a href=\"https://support.cloudflare.com/hc/en-us/articles/200171906-Error-522\"
+        data-translate=\"addtl_troubleshooting\">Additional troubleshooting information
+        here.</a></p>\n</div>\n</div>\n</div> \n<div class=\"cf-error-footer cf-wrapper\">\n<p>\n<span
+        class=\"cf-footer-item\">CloudFlare Ray ID: <strong>1e310d5860cc10c3</strong></span>\n<span
+        class=\"cf-footer-separator\">&bull;</span>\n<span class=\"cf-footer-item\"><span
+        data-translate=\"your_ip\">Your IP</span>: 2001:4930:22:0:dca1:642:aacb:7bd</span>\n<span
+        class=\"cf-footer-separator\">&bull;</span>\n<span class=\"cf-footer-item\"><span
+        data-translate=\"performance_security_by\">Performance &amp; security by</span>
+        <a data-orig-proto=\"https\" data-orig-ref=\"www.cloudflare.com/5xx-error-landing\"
+        id=\"brand_link\" target=\"_blank\">CloudFlare</a></span>\n</p>\n</div> \n</div>
+        \n</div> \n"
+    http_version: 
+  recorded_at: Fri, 08 May 2015 00:30:00 GMT
+recorded_with: VCR 2.9.3
