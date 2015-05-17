@@ -74,6 +74,12 @@ See tests for more usage examples.
 1. Better commenting
 2. ~~Provide usage examples in readme~~
 
+## Testing
+
+```
+rake test
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/marshallford/strike_api/fork )
