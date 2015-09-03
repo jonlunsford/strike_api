@@ -27,7 +27,7 @@ Or install it yourself as:
 ```ruby
 # Param 1: torrent hash string or array of torrent hash strings
 # Returns: array of torrent objects (objects include file_info data)
-torrentInfoArray = StrikeApi::Torrent.find(yourTorrentHash)
+torrent_info_Array = StrikeAPI::Torrent.find(yourTorrentHash)
 ```
 
 ### Search
@@ -35,18 +35,18 @@ torrentInfoArray = StrikeApi::Torrent.find(yourTorrentHash)
 ```ruby
 # Param 1: search phrase, example: "ubuntu iso"
 # Returns: array of torrent objects
-searchResults = StrikeApi::Torrent.search(yourSearchPhrase)
+search_results = StrikeAPI::Torrent.search(search_phrase)
 
 # Param 1: search phrase, example: "ubuntu iso"
-# Param 2: category or sub category, examples: "Music", "Documentary"
+# Param 2: category or subcategory, examples: "Music", "Documentary"
 # Returns: array of torrent objects
-searchResults = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagoryOrSubCategory)
+search_results = StrikeAPI::Torrent.search(search_phrase, category_or_subcategory)
 
 # Param 1: search phrase, example: "ubuntu iso"
 # Param 2: category, example: "Applications"
-# Param 3: sub category, example: "Windows"
+# Param 3: subcategory, example: "Windows"
 # Returns: array of torrent objects
-searchResults = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSubCategory)
+search_results = StrikeAPI::Torrent.search(search_phrase, category, subcategory)
 ```
 
 ### Top torrents
@@ -54,17 +54,17 @@ searchResults = StrikeApi::Torrent.search(yourSearchPhrase, yourCatagory, yourSu
 ```ruby
 # Param 1: category, examples: "Books", "all"
 # Returns: top 100 torrents
-topResults = StrikeApi::Torrent.top(yourCatagory)
+top_results = StrikeAPI::Torrent.top(category)
 ```
 
 ### Categories and sub categories
 
 ```ruby
 # Returns: array of valid categories
-categoryArray = StrikeApi::Torrent.catagoriesAvailable()
+category_array = StrikeAPI::Torrent.categories_available()
 
-# Returns: array of valid sub categories
-subCategoryArray = StrikeApi::Torrent.subCatagoriesAvailable()
+# Returns: array of valid subcategories
+subcategory_array = StrikeAPI::Torrent.subcategories_available()
 ```
 
 See tests for more usage examples.
