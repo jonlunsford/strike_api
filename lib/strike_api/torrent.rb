@@ -6,12 +6,13 @@ API_URL = 'https://getstrike.net/api/v2/torrents'
 
 module StrikeAPI
   class Torrent
-    attr_reader :hash, :title, :category, :subcategory, :seeds, :leeches, :file_count, :size, :download_count, :upload_date, :uploader_username, :magnet_uri, :file_info
+   attr_reader :hash, :title, :category, :subcategory, :seeds, :leeches, :file_count, :size, :download_count, :upload_date, :uploader_username, :magnet_uri, :file_info, :imdbid
 
     # Constructor for torrent objects
     def initialize(attributes)
       @hash = attributes['torrent_hash']
       @title = attributes['torrent_title']
+      @imdbid = attributes['imdbid']
       @category = attributes['torrent_category']
       @subcategory = attributes['sub_category']
       @seeds = attributes['seeds']
