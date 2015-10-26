@@ -44,46 +44,47 @@ module StrikeAPI
       torrent_hash.length.times do |i|
         hash_list_str += torrent_hash[i] + ','
       end
-      response =  HTTParty.get("#{API_URL}/info/?hashes=#{hash_list_str}")
+      url = "#{API_URL}/info/?hashes=#{hash_list_str}"
+      response = HTTParty.get(URI.escape(url))
       error_checker(response)
       torrents_json = JSON.parse(response.body)
       torrents_json['torrents'].map { |attributes| new(attributes) }
     end
 
     def self.search(*input)
-      search_phrase = CGI::escape(input[0].strip)
       case input.length
       when 1
-        response = HTTParty.get("#{API_URL}/search/?phrase=#{search_phrase}")
+        url = "#{API_URL}/search/?phrase=#{input[0]}"
       when 2
         if(category_checker(input[1]) == 'category') # second input is a category
-          response = HTTParty.get("#{API_URL}/search/?phrase=#{search_phrase}&category=#{input[1]}")
+          url = "#{API_URL}/search/?phrase=#{input[0]}&category=#{input[1]}"
         elsif(category_checker(input[1]) == 'subcategory') # second input is a sub category
-          response = HTTParty.get("#{API_URL}/search/?phrase=#{search_phrase}&subcategory=#{input[1]}")
+          url = "#{API_URL}/search/?phrase=#{input[0]}&subcategory=#{input[1]}"
         else # second input is neither a category or sub category
           raise 'The category/subcategory entered is not valid'
         end
-      when 3 # assumes order is search_phrase,category,subcategory
+      when 3 # assumes order is input[0],category,subcategory
         if(category_checker(input[1]) != 'category')
           raise 'The category is not valid'
         elsif(category_checker(input[2]) != 'subcategory')
           raise 'The subcategory is not valid'
         end
-        response = HTTParty.get("#{API_URL}/search/?phrase=#{search_phrase}&category=#{input[1]}&subcategory=#{input[2]}")
+        url = "#{API_URL}/search/?phrase=#{input[0]}&category=#{input[1]}&subcategory=#{input[2]}"
       else
         raise 'Invalid number of parameters: input <= 3'
       end
+      response = HTTParty.get(URI.escape(url))
       error_checker(response)
       torrents_json = JSON.parse(response.body)
       torrents_json['torrents'].map { |attributes| new(attributes) }
     end
 
     def self.top(input)
-      search_phrase = CGI::escape(input.strip)
       if((category_checker(input) != 'category') && input.strip.downcase != 'all') # all is also a valid top category
         raise 'The category is not valid'
       end
-      response = HTTParty.get("#{API_URL}/top/?category=#{input}")
+      url = "#{API_URL}/top/?category=#{input}"
+      response = HTTParty.get(URI.escape(url))
       error_checker(response)
       torrents_json = JSON.parse(response.body)
       torrents_json['torrents'].map { |attributes| new(attributes) }

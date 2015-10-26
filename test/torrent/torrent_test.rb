@@ -271,4 +271,13 @@ class StrikeTorrentTest < Minitest::Test
     assert result.kind_of?(Array)
     assert result.first.kind_of?(String)
   end
+
+  def test_issue_2
+    VCR.use_cassette('test_issue_2') do
+      result = StrikeAPI::Torrent.search('Interstellar', 'Movies', 'Highres Movies')
+      assert result.kind_of?(Array)
+      assert result.first.kind_of?(StrikeAPI::Torrent)
+    end
+  end
+
 end
