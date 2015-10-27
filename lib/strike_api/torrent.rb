@@ -1,7 +1,3 @@
-require 'httparty'
-require 'json'
-require 'cgi'
-
 API_URL = 'https://getstrike.net/api/v2/torrents'
 
 module StrikeAPI
@@ -90,6 +86,7 @@ module StrikeAPI
       torrents_json = JSON.parse(response.body)
       torrents_json['torrents'].map { |attributes| new(attributes) }
     end
+
 
     # Returns list of categories available
     def self.categories_available
