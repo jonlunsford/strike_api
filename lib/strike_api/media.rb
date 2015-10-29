@@ -13,7 +13,6 @@ module StrikeAPI
 
     def self.imdb(id)
       url = "#{API_URL}/imdb/?imdbid=#{id}"
-      puts url
       response = HTTParty.get(URI.escape(url))
       torrent = JSON.parse(response.body)
       new(torrent)
