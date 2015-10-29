@@ -1,5 +1,6 @@
 module StrikeAPI
   class Media
+    include StrikeAPI::Utils
 
     API_URL = 'https://getstrike.net/api/v2/media'
 
@@ -17,6 +18,7 @@ module StrikeAPI
       torrent = JSON.parse(response.body)
       new(torrent)
     end
+
 
   end
 end
