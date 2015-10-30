@@ -17,7 +17,5 @@ module StrikeAPI
       torrent = JSON.parse(response.body)
       new(torrent)
     end
-
-
   end
 end
